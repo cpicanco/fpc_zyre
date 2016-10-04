@@ -6,14 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs
-  , zyre_library
-  , zyre
-  , zyre_classes
-  , zyre_node
-  , zyre_group
-  , zyre_peer
-  , zyre_msg
-  , zyre_event
+  , TestCase1
   ;
 
 type

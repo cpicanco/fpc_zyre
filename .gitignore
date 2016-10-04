@@ -1,0 +1,7 @@
+*.ico
+*.o
+*.ppu
+*.or
+*.lps
+*.res
+*backup*

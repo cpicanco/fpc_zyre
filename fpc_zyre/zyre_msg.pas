@@ -99,10 +99,10 @@ const
     function zre_msg_encode_hello(
           sequence: cuint16;
           endpoint:PChar;
-          groups:TZyreList;
+          groups:TZList;
           status:byte;
           name:PChar;
-          headers:TZyreHash):TZMessage;cdecl;external ZYRE_LIBRARY_NAME;
+          headers:TZHash):TZMessage;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Encode the WHISPER
     function zre_msg_encode_whisper(
@@ -141,10 +141,10 @@ const
     function zre_msg_send_hello(output:Pointer;
           sequence:cuint16;
           endpoint:PChar;
-          groups:TZyreList;
+          groups:TZList;
           status:byte;
           name:PChar;
-          headers:TZyreHash):cint;cdecl;external ZYRE_LIBRARY_NAME;
+          headers:TZHash):cint;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Send the WHISPER to the output in one step
   //  WARNING, this call will fail if output is of type ZMQ_ROUTER.
@@ -206,11 +206,11 @@ const
           self:TZyreMessage;format:PChar;KArgs:array of const);cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Get/set the groups field
-    function zre_msg_groups(self:TZyreMessage):TZyreList;external ZYRE_LIBRARY_NAME;
+    function zre_msg_groups(self:TZyreMessage):TZList;external ZYRE_LIBRARY_NAME;
   //  Get the groups field and transfer ownership to caller
-    function zre_msg_get_groups(self:TZyreMessage):TZyreList;external ZYRE_LIBRARY_NAME;
+    function zre_msg_get_groups(self:TZyreMessage):TZList;external ZYRE_LIBRARY_NAME;
   //  Set the groups field, transferring ownership from caller
-    procedure zre_msg_set_groups(self:TZyreMessage;groups_p:PZyreList);cdecl;external ZYRE_LIBRARY_NAME;
+    procedure zre_msg_set_groups(self:TZyreMessage;groups_p:PZList);cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Iterate through the groups field, and append a groups value
     function zre_msg_groups_first(self:TZyreMessage):PChar;external ZYRE_LIBRARY_NAME;
@@ -218,7 +218,7 @@ const
     procedure zre_msg_groups_append(
           self:TZyreMessage;format:PChar;KArgs:array of const);cdecl;external ZYRE_LIBRARY_NAME;
 
-    function zre_msg_groups_size(self:TZyreMessage):size_t;external ZYRE_LIBRARY_NAME;
+    function zre_msg_groups_size(self:TZyreMessage):csize_t;external ZYRE_LIBRARY_NAME;
 
   //  Get/set the status field
     function zre_msg_status(self:TZyreMessage):byte;external ZYRE_LIBRARY_NAME;
@@ -230,11 +230,11 @@ const
           self:TZyreMessage;format:PChar;KArgs:array of const);cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Get/set the headers field
-    function zre_msg_headers(self:TZyreMessage):TZyreHash;external ZYRE_LIBRARY_NAME;
+    function zre_msg_headers(self:TZyreMessage):TZHash;external ZYRE_LIBRARY_NAME;
   //  Get the headers field and transfer ownership to caller
-    function zre_msg_get_headers(self:TZyreMessage):TZyreHash;external ZYRE_LIBRARY_NAME;
+    function zre_msg_get_headers(self:TZyreMessage):TZHash;external ZYRE_LIBRARY_NAME;
   //  Set the headers field, transferring ownership from caller
-    procedure zre_msg_set_headers(self:TZyreMessage; headers_p:PZyreHash);cdecl;external ZYRE_LIBRARY_NAME;
+    procedure zre_msg_set_headers(self:TZyreMessage; headers_p:PZHash);cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Get/set a value in the headers dictionary
     function zre_msg_headers_string(
@@ -248,7 +248,7 @@ const
     procedure zre_msg_headers_insert(self:TZyreMessage;
           key, format:PChar;KArgs:array of const);cdecl;external ZYRE_LIBRARY_NAME;
 
-    function zre_msg_headers_size(self:TZyreMessage):size_t;external ZYRE_LIBRARY_NAME;
+    function zre_msg_headers_size(self:TZyreMessage):csize_t;external ZYRE_LIBRARY_NAME;
 
   //  Get a copy of the content field
     function zre_msg_content(self:TZyreMessage):TZMessage;external ZYRE_LIBRARY_NAME;

@@ -8,7 +8,7 @@ type
   zyre_peer_t = record end;            TZyrePeer = zyre_peer_t;            PZyrePeer = ^TZyrePeer;
 
   //  Constructor
-  function zyre_peer_new(container:TZyreHash;uuid:TCZmqUUID):TZyrePeer;cdecl;external ZYRE_LIBRARY_NAME;
+  function zyre_peer_new(container:TZHash;uuid:TCZmqUUID):TZyrePeer;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Destructor
   procedure zyre_peer_destroy(self_p:PZyrePeer);external ZYRE_LIBRARY_NAME;
@@ -65,10 +65,10 @@ type
   function zyre_peer_header(self_p:PZyrePeer; key, default_value:cchar):PChar;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Get peer headers table
-  function zyre_peer_headers(self_p:PZyrePeer):TZyreHash;external ZYRE_LIBRARY_NAME;
+  function zyre_peer_headers(self_p:PZyrePeer):TZHash;external ZYRE_LIBRARY_NAME;
 
   //  Set peer headers from provided dictionary
-  procedure zyre_peer_set_headers(self_p:PZyrePeer;headers:TZyreHash);cdecl;external ZYRE_LIBRARY_NAME;
+  procedure zyre_peer_set_headers(self_p:PZyrePeer;headers:TZHash);cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Check if messages were lost from peer, returns true if they were.
   function zyre_peer_messages_lost(self_p:PZyrePeer;msg:TZyreMessage):Boolean;cdecl;external ZYRE_LIBRARY_NAME;

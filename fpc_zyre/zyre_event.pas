@@ -47,7 +47,7 @@ type
   function zyre_event_peer_addr(self:TZyreEvent):PChar;external ZYRE_LIBRARY_NAME;
 
   //  Returns the event headers, or NULL if there are none
-  function zyre_event_headers(self:TZyreEvent):TZyreHash;external ZYRE_LIBRARY_NAME;
+  function zyre_event_headers(self:TZyreEvent):TZHash;external ZYRE_LIBRARY_NAME;
 
   //  Returns value of a header from the message headers
   //  obtained by ENTER. Return NULL if no value was found.

@@ -10,7 +10,7 @@ type
 
 //  This is the actor that runs a single node; it uses one thread, creates
 //  a zyre_node object at start and destroys that when finishing.
-procedure zyre_node_actor(pipe:TZyreSocket; args:Pointer);cdecl;external ZYRE_LIBRARY_NAME;
+procedure zyre_node_actor(pipe:TZSocket; args:Pointer);cdecl;external ZYRE_LIBRARY_NAME;
 
 implementation
 

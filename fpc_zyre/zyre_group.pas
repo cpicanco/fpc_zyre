@@ -8,7 +8,7 @@ type
   zyre_group_t = record end;            TZyreGroup = zyre_group_t;            PZyreGroup = ^TZyreGroup;
 
   //  Constructor
-  function zyre_group_new(name:PChar;container:TZyreHash):TZyreGroup;cdecl;external ZYRE_LIBRARY_NAME;
+  function zyre_group_new(name:PChar;container:TZHash):TZyreGroup;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Destructor
   procedure zyre_group_destroy(self_p:PZyreGroup);external ZYRE_LIBRARY_NAME;

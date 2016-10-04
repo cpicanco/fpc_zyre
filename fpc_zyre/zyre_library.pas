@@ -29,12 +29,11 @@ type
 
   zframe_t     = record end;    TZFrame      = zframe_t;        PZFrame      = ^TZFrame;
   zmsg_t       = record end;    TZMessage    = zmsg_t;          PZMessage    = ^TZMessage;
-  zlist_t      = record end;    TZyreList    = zlist_t;         PZyreList    = ^TZyreList;
-  zsock_t      = record end;    TZyreSocket  = zsock_t;         PZyreSocket  = ^TZyreSocket;
-  zhash_t      = record end;    TZyreHash    = zhash_t;         PZyreHash    = ^TZyreHash;
+  zlist_t      = record end;    TZList       = zlist_t;         PZList       = ^TZList;
+  zsock_t      = record end;    TZSocket     = zsock_t;         PZSocket     = ^TZSocket;
+  zhash_t      = record end;    TZHash       = zhash_t;         PZHash       = ^TZHash;
   zuuid_t      = record end;    TCZmqUUID    = zuuid_t;         PCZmqUUID    = ^TCZmqUUID;
 
-  size_t = Int64;
 const
   ZRE_DISCOVERY_PORT = 5670;
 implementation

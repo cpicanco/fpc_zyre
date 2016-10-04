@@ -35,7 +35,7 @@ uses ctypes, zyre_library;
 
   //  Set UDP beacon discovery interval, in milliseconds. Default is instant
   //  beacon exploration followed by pinging every 1,000 msecs.
-  procedure zyre_set_interval(self:TZyre;interval:size_t);cdecl;external ZYRE_LIBRARY_NAME;
+  procedure zyre_set_interval(self:TZyre;interval:csize_t);cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Set network interface for UDP beacons. If you do not set this, CZMQ will
   //  choose an interface for you. On boxes with several interfaces you should
@@ -101,15 +101,15 @@ uses ctypes, zyre_library;
 
   //  Return zlist of current peer ids.
   //  Caller owns return value and must destroy it when done.
-  function zyre_peers(self:TZyre):TZyreList;external ZYRE_LIBRARY_NAME;
+  function zyre_peers(self:TZyre):TZList;external ZYRE_LIBRARY_NAME;
 
   //  Return zlist of currently joined groups.
   //  Caller owns return value and must destroy it when done.
-  function zyre_own_groups(self:TZyre):TZyreList;external ZYRE_LIBRARY_NAME;
+  function zyre_own_groups(self:TZyre):TZList;external ZYRE_LIBRARY_NAME;
 
   //  Return zlist of groups known through connected peers.
   //  Caller owns return value and must destroy it when done.
-  function zyre_peer_groups(self:TZyre):TZyreList;external ZYRE_LIBRARY_NAME;
+  function zyre_peer_groups(self:TZyre):TZList;external ZYRE_LIBRARY_NAME;
 
   //  Return the endpoint of a connected peer.
   //  Caller owns return value and must destroy it when done.
@@ -121,7 +121,7 @@ uses ctypes, zyre_library;
   function zyre_peer_header_value(self:TZyre;peer:PChar;name:PChar):PChar;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Return socket for talking to the Zyre node, for polling
-  function zyre_socket(self:TZyre):TZyreSocket;external ZYRE_LIBRARY_NAME;
+  function zyre_socket(self:TZyre):TZSocket;external ZYRE_LIBRARY_NAME;
 
   //  Print zyre node information to stdout
   procedure zyre_print(self:TZyre);external ZYRE_LIBRARY_NAME;

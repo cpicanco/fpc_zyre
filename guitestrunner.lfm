@@ -1,0 +1,8 @@
+object TestRunner: TTestRunner
+  Left = 647
+  Height = 240
+  Top = 268
+  Width = 320
+  Caption = 'TestRunner'
+  LCLVersion = '1.6.0.4'
+end

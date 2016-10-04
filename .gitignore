@@ -5,3 +5,5 @@
 *.lps
 *.res
 *backup*
+binaries
+fpc_zyre_test

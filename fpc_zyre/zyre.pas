@@ -127,7 +127,8 @@ uses ctypes, zyre_library;
   procedure zyre_print(self:TZyre);external ZYRE_LIBRARY_NAME;
 
   //  Return the Zyre version for run-time API detection
-  procedure zyre_version(var major, minor, patch:cint);cdecl;external ZYRE_LIBRARY_NAME;
+  //  major * 10000 + minor * 100 + patch, as a single integer.
+  function zyre_version:UInt64;cdecl;external ZYRE_LIBRARY_NAME;
 
   //  Self test of this class.
   procedure zyre_test(verbose:Boolean); external ZYRE_LIBRARY_NAME;

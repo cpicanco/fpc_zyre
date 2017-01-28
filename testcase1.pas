@@ -5,15 +5,17 @@ unit TestCase1;
 interface
 
 uses
-  Classes, SysUtils, fpcunit, testutils, testregistry
-  , zyre_library
+  Classes, SysUtils, fpcunit, testregistry
+  //, testutils
+  , ctypes
+  //, zyre_library
   , zyre
   , zyre_classes
-  , zyre_node
-  , zyre_group
-  , zyre_peer
+  //, zyre_node
+  //, zyre_group
+  //, zyre_peer
   , zyre_msg
-  , zyre_event
+  //, zyre_event
   ;
 
 type
@@ -27,57 +29,93 @@ type
     procedure SetUp; override;
     procedure TearDown; override;
   published
-    procedure Test1;
-    procedure Test2;
-    procedure Test3;
-    procedure Test4;
-    procedure Test5;
+    procedure Zyre;
+    procedure Peer;
+    procedure Group;
+    procedure Node;
+    procedure Message;
   end;
 
-var GTestResult : TTestResult;
+var
+  GTestResult : TTestResult;
+  GMajor,GMinor,GPatch : cint;
 
 implementation
 
-procedure TTestZyre.Test1;
+procedure TTestZyre.Zyre;
 begin
- Fail('Fail Test 1');
+  try
+    WriteLn('zyre_test');
+    zyre_test(True);
+  except
+    on E: Exception do
+      Fail('zyre_library fail');
+  end;
 end;
 
-procedure TTestZyre.Test2;
+procedure TTestZyre.Peer;
 begin
-  WriteLn('Fail test 2.');
+  try
+    WriteLn('zyre_peer_test');
+    zyre_peer_test(True);
+  except
+    on E: Exception do
+      Fail('zyre_peer fail');
+  end;
 end;
 
-procedure TTestZyre.Test3;
+procedure TTestZyre.Group;
 begin
-  WriteLn('Fail test 3.');
+  try
+    WriteLn('zyre_group_test');
+    zyre_group_test(True);
+  except
+    on E: Exception do
+      Fail('zyre_group fail');
+  end;
 end;
 
-procedure TTestZyre.Test4;
+procedure TTestZyre.Node;
 begin
-  WriteLn('Fail test 4.');
+  try
+    WriteLn('zyre_node_test');
+    zyre_node_test(True);
+  except
+    on E: Exception do
+      Fail('zyre_node fail');
+  end;
 end;
 
-procedure TTestZyre.Test5;
+procedure TTestZyre.Message;
 begin
-  WriteLn('Fail test 5.');
+  try
+    WriteLn('zyre_msg');
+    zre_msg_test(True);
+  except
+    on E: Exception do
+      Fail('zyre_msg fail');
+  end;
 end;
 
 procedure TTestZyre.SetUp;
 begin
-
+  Write('Starting test:'+#32);
 end;
 
 procedure TTestZyre.TearDown;
 begin
+  WriteLn(#10);
 end;
 
 initialization
+  WriteLn('Testing zyre_version:',zyre_version);
+  WriteLn(#10);
+
   RegisterTest(TTestZyre);
   GTestResult := TTestResult.Create;
   try
     TTestSuite(GetTestRegistry).Run(GTestResult);
-      WriteLn(IntToStr(GTestResult.RunTests));
+    WriteLn(IntToStr(GTestResult.RunTests)+' tests runned.');
   finally
     GTestResult.Free;
   end;

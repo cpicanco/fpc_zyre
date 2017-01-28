@@ -1,5 +1,12 @@
-
 unit zyre_library;
+
+// static on linux
+//{$LINKLIB stdc++}
+//{$LINKLIB gcc_s}
+//{$LINK /usr/local/lib/libsodium.a}
+//{$LINK /usr/local/lib/libzmq.a}
+//{$LINK /usr/local/lib/libczmq.a}
+//{$LINK /usr/local/lib/libzyre.a}
 
 interface
 
@@ -9,7 +16,7 @@ const
 {$endif}
 
 {$ifdef LINUX}
-  ZYRE_LIBRARY_NAME = 'libzyre.so.1';
+  ZYRE_LIBRARY_NAME = 'zyre';
 {$endif}
 
 {$ifdef DARWIN}
@@ -36,6 +43,12 @@ type
 
 const
   ZRE_DISCOVERY_PORT = 5670;
+
+  // use zyre_version instead
+  //ZYRE_VERSION_MAJOR = 2;
+  //ZYRE_VERSION_MINOR = 0;
+  //ZYRE_VERSION_PATCH = 1;
+
 implementation
 
 end.
